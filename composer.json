@@ -1,0 +1,12 @@
+{
+    "name": "arne/request_echoer",
+    "description": "Echos the ip and port of a client request",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Arne Trodahl",
+            "email": "arne.trodahl@gmail.com"
+        }
+    ],
+    "require": {}
+}
