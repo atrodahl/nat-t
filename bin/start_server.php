@@ -5,7 +5,7 @@ require implode(DIRECTORY_SEPARATOR, array(__DIR__, '..', 'src', 'initialize.php
 $echoer_host = '10.10.10.46';
 $echoer_port = 1100;
 
-$request = json_decode(file_get_contents("http://$echoer_host:$echoer_port/?register"));
+$request = json_decode(file_get_contents("http://$echoer_host:$echoer_port/?register=ssh"));
 
 $ip = gethostbyname(gethostname());
 $port = $request->port;
