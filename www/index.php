@@ -41,10 +41,14 @@ function not_found() {
 }
 
 if ($service_name = get_param($_GET, 'register')) {
-    register_service($service_name);
+    echo register_service($service_name);
 }
 else if ($service_name = get_param($_GET, 'request')) {
-    if (!get_service($service_name)) {
+    $service_definition = get_service($service_name);
+    if ($service_definition) {
+        echo $service_definition;
+    }
+    else {
         not_found();
     }
 }

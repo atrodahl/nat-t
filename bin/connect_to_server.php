@@ -5,7 +5,7 @@ require implode(DIRECTORY_SEPARATOR, array(__DIR__, '..', 'src', 'initialize.php
 $service_directory_host = gethostbyname(gethostname());
 $service_directory_port = 1100;
 
-$server = json_decode(file_get_contents("http://$service_directory_host:$service_directory_port/?request=ssh"));
+$server = json_decode(file_get_contents("http://$service_directory_host:$service_directory_port/?request=ncat"));
 
 $cmd = sprintf('%s %s %s < /dev/null',
     'ncat',
