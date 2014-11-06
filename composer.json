@@ -1,12 +1,6 @@
 {
-    "name": "arne/request_echoer",
-    "description": "Echos the ip and port of a client request",
+    "name": "atrodahl/nat-t",
+    "description": "NAT Traversal tool",
     "license": "proprietary",
-    "authors": [
-        {
-            "name": "Arne Trodahl",
-            "email": "arne.trodahl@gmail.com"
-        }
-    ],
     "require": {}
 }
