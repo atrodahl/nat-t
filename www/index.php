@@ -15,8 +15,8 @@ function save_service(array $service) {
 
 function register_service($service_name) {
     $service = array(
-        'ip' => $_SERVER['REMOTE_ADDR'],
-        'port' => $_SERVER['REMOTE_PORT'],
+        'ip' => get_param($_SERVER, 'REMOTE_ADDR'),
+        'port' => get_param($_SERVER, 'REMOTE_PORT'),
         'name' => $service_name
     );
 
@@ -33,16 +33,21 @@ function get_param($bag, $name) {
     return isset($bag[$name]) ? $bag[$name] : null;
 }
 
+function bad_request() {
+    header("HTTP/1.0 400 Bad Request");
+}
 function not_found() {
     header("HTTP/1.0 404 Not Found");
 }
 
 if ($service_name = get_param($_GET, 'register')) {
-    die(register_service($service_name));
+    register_service($service_name);
 }
 else if ($service_name = get_param($_GET, 'request')) {
-    die(get_service($service_name));
+    if (!get_service($service_name)) {
+        not_found();
+    }
 }
 else {
-    not_found();
+    bad_request();
 }
