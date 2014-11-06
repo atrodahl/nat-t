@@ -1,9 +1,9 @@
-#!/usr/local/xait/php/bin/php
+#!/usr/bin/env php
 <?php
 require implode(DIRECTORY_SEPARATOR, array(__DIR__, '..', 'src', 'initialize.php'));
 
 $tty = system('tty');
-$host = '10.10.10.46';
+$host = gethostbyname(gethostname());
 $port = 1100;
 
 $cmd = sprintf('%s -t %s -S %s:%s 1>%s 2>%s &',

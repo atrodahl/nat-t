@@ -1,11 +1,11 @@
-#!/usr/local/xait/php/bin/php
+#!/usr/bin/env php
 <?php
 require implode(DIRECTORY_SEPARATOR, array(__DIR__, '..', 'src', 'initialize.php'));
 
-$echoer_host = '10.10.10.46';
-$echoer_port = 1100;
+$service_directory_host = gethostbyname(gethostname());
+$service_directory_port = 1100;
 
-$server = json_decode(file_get_contents("http://$echoer_host:$echoer_port/?request=ssh"));
+$server = json_decode(file_get_contents("http://$service_directory_host:$service_directory_port/?request=ssh"));
 
 $cmd = sprintf('%s %s %s < /dev/null',
     'ncat',
